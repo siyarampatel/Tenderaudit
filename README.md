@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 🏛️ TenderAudit
 ### AI-Powered Government Tender Eligibility Evaluation System
 
@@ -198,3 +199,6 @@ The LLM model used is `llama-3.1-8b-instant` — fast and free tier eligible.
 ---
 
 *Built with ❤️ for transparent, auditable government procurement.*
+=======
+# Tenderaudit
+>>>>>>> 40a542d340cd0d599e85a5e1c87d8a4f1ced9004
