@@ -220,7 +220,7 @@ st.markdown("""
 # ─────────────────────────────────────────────────────────────
 def init_state():
     defaults = {
-        "api_key": os.getenv("GROQ_API_KEY", ""),
+        "api_key": os.getenv("GROQ_API_KEY", "") or st.secrets.get("GROQ_API_KEY", ""),
         "stage": "setup",           # setup → tender → bidders → evaluation → results
         "tender_text": "",
         "tender_name": "Untitled Tender",
