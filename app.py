@@ -22,6 +22,13 @@ from modules.pdf_exporter import generate_report
 # ─────────────────────────────────────────────────────────────
 load_dotenv()
 
+# Load API key from Streamlit secrets if available
+try:
+    if "GROQ_API_KEY" in st.secrets:
+        os.environ["GROQ_API_KEY"] = st.secrets["GROQ_API_KEY"]
+except Exception:
+    pass
+
 st.set_page_config(
     page_title="TenderAudit",
     page_icon="🏛️",
