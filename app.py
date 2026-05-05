@@ -220,7 +220,7 @@ st.markdown("""
 # ─────────────────────────────────────────────────────────────
 def init_state():
     defaults = {
-        "api_key": os.getenv("GROQ_API_KEY", "") or st.secrets.get("GROQ_API_KEY", ""),
+        "api_key": st.secrets.get("GROQ_API_KEY", "") or os.getenv("GROQ_API_KEY", ""),
         "stage": "setup",           # setup → tender → bidders → evaluation → results
         "tender_text": "",
         "tender_name": "Untitled Tender",
@@ -259,6 +259,12 @@ def criterion_status_icon(status: str) -> str:
 
 def get_groq(api_key: str = None):
     key = api_key or st.session_state.api_key
+    # Try secrets if no key found
+    if not key:
+        try:
+            key = st.secrets.get("GROQ_API_KEY", "")
+        except Exception:
+            pass
     return get_groq_client(key)
 
 
